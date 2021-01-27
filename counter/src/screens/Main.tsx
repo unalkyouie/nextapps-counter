@@ -15,7 +15,14 @@ const Main = () => {
       <View style={styles.counterWrapper}>
         <Text style={styles.counterText}>{counterValue}</Text>
         <View style={styles.buttonsWrapper}>
-          <Button />
+          <Button
+            type="decrement"
+            disabled={counterValue <= 0 ? true : false}
+          />
+          <Button
+            type="increment"
+            disabled={counterValue >= 100 ? true : false}
+          />
         </View>
       </View>
     </View>
