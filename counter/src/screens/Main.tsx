@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import Button from '../components/Button';
+import { AppState } from '../reducers';
 
 const { height } = Dimensions.get('window');
 
 const Main = () => {
-  const [counterValue, setCounterValue] = useState(0);
-
-  const increment = () => {
-    setCounterValue(counterValue + 1);
-  };
-  const decrement = () => {
-    setCounterValue(counterValue - 1);
-  };
+  const counterValue = useSelector<AppState, number>((state) => state.counter);
 
   return (
     <View style={styles.container}>

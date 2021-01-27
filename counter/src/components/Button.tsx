@@ -1,10 +1,20 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useDispatch } from 'react-redux';
+
+import { increment } from '../reducers/counterReducer';
+import { AppDispatch } from '../store';
 
 const Button = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(increment());
+        }}
+        style={styles.button}>
         <Text style={styles.text}>+</Text>
       </TouchableOpacity>
     </View>
