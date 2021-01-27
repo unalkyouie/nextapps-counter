@@ -2,20 +2,26 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import { increment } from '../reducers/counterReducer';
+import { decrement, increment } from '../reducers/counterReducer';
 import { AppDispatch } from '../store';
 
-const Button = () => {
+interface ButtonProps {
+  type: 'increment' | 'decrement';
+  disabled?: boolean;
+}
+
+const Button = ({ type, disabled }: ButtonProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        disabled={disabled}
         onPress={() => {
-          dispatch(increment());
+          type === 'increment' ? dispatch(increment()) : dispatch(decrement());
         }}
         style={styles.button}>
-        <Text style={styles.text}>+</Text>
+        <Text style={styles.text}>{type === 'increment' ? '+' : '-'}</Text>
       </TouchableOpacity>
     </View>
   );
