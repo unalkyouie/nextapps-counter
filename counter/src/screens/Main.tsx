@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+
+import Button from '../components/Button';
 
 const { height } = Dimensions.get('window');
 
@@ -24,12 +20,7 @@ const Main = () => {
       <View style={styles.counterWrapper}>
         <Text style={styles.counterText}>{counterValue}</Text>
         <View style={styles.buttonsWrapper}>
-          <TouchableOpacity onPress={decrement} style={styles.button}>
-            <Text style={styles.counterText}>-</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={increment} style={styles.button}>
-            <Text style={styles.counterText}>+</Text>
-          </TouchableOpacity>
+          <Button />
         </View>
       </View>
     </View>
