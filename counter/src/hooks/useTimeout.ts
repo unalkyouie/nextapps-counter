@@ -6,7 +6,7 @@ export const useTimeout = (
   start: boolean,
 ) => {
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer;
     if (start) {
       timer = setTimeout(callback, timeout);
     }
