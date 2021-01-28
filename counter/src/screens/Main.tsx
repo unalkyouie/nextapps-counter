@@ -8,7 +8,9 @@ import { AppState } from '../reducers';
 const { height } = Dimensions.get('window');
 
 const Main = () => {
-  const counterValue = useSelector<AppState, number>((state) => state.counter);
+  const counterValue = useSelector<AppState, number>(
+    (state) => state.counter.counter,
+  );
 
   return (
     <View style={styles.container}>
